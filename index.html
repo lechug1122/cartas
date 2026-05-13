@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta Regresiva Romantica</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene" aria-labelledby="title">
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <section class="hero">
+      <img class="logo" src="img/logo.png" alt="">
+      <h1 id="title">Cuenta Regresiva</h1>
+      <p class="date">22 de mayo, 12:00 PM</p>
+      <p class="romantic-phrase">
+        Si el mundo se vuelve noche, yo solo necesito tu luz para encontrar el camino.
+      </p>
+
+      <div class="countdown" role="timer" aria-live="polite">
+        <div class="time-block">
+          <span id="days">00</span>
+          <p>Dias</p>
+        </div>
+        <div class="time-block">
+          <span id="hours">00</span>
+          <p>Horas</p>
+        </div>
+        <div class="time-block">
+          <span id="minutes">00</span>
+          <p>Minutos</p>
+        </div>
+        <div class="time-block">
+          <span id="seconds">00</span>
+          <p>Segundos</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="letters" aria-label="Actos romanticos">
+      <article class="letter-card" data-unlock="2026-05-13T12:00:00">
+        <span class="card-number">Acto 1</span>
+        <h2>Muerte</h2>
+        <p class="locked-text">Se habilita el 13 de mayo a las 12:00 PM.</p>
+        <div class="open-text">
+          <p>El Acto 1 ya esta abierto.</p>
+          <a class="read-letter" href="cartas/carta.pdf" target="_blank" rel="noopener">Leer carta</a>
+        </div>
+      </article>
+
+      <article class="letter-card" data-unlock="2026-05-14T12:00:00">
+        <span class="card-number">Acto 2</span>
+        <h2>Promesa</h2>
+        <p class="locked-text">Se habilita el 14 de mayo a las 12:00 PM.</p>
+        <p class="open-text">Te elegiria incluso en otra vida, en otro cielo y en otro tiempo.</p>
+      </article>
+
+      <article class="letter-card" data-unlock="2026-05-15T12:00:00">
+        <span class="card-number">Acto 3</span>
+        <h2>Memoria</h2>
+        <p class="locked-text">Se habilita el 15 de mayo a las 12:00 PM.</p>
+        <p class="open-text">Guardo tu risa como quien guarda una vela encendida en un castillo oscuro.</p>
+      </article>
+
+      <article class="letter-card" data-unlock="2026-05-16T12:00:00">
+        <span class="card-number">Acto 4</span>
+        <h2>Destino</h2>
+        <p class="locked-text">Se habilita el 16 de mayo a las 12:00 PM.</p>
+        <p class="open-text">No se si el destino existe, pero contigo todo parece escrito con magia.</p>
+      </article>
+
+      <article class="letter-card" data-unlock="2026-05-17T12:00:00">
+        <span class="card-number">Acto 5</span>
+        <h2>El dia</h2>
+        <p class="locked-text">Se habilita el 17 de mayo a las 12:00 PM.</p>
+        <p class="open-text">Hoy se abre el acto final: mi corazon te estaba esperando aqui.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
