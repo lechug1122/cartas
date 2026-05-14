@@ -12,7 +12,7 @@ const parts = {
 
 // Cambia esta fecha para probar los actos. Usa null para volver a la fecha real.
 // Ejemplo: const previewDate = new Date("2026-05-13T12:01:00");
-const previewDate = null
+const previewDate = new Date("2027-05-13T12:01:00");
 
 function getNow() {
   return previewDate ? previewDate.getTime() : Date.now();
