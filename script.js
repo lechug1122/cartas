@@ -2,6 +2,10 @@ const countdown = document.querySelector(".countdown");
 const particles = document.querySelector("#particles");
 const dateLabel = document.querySelector(".date");
 const cards = [...document.querySelectorAll(".letter-card")];
+const carouselSlides = [...document.querySelectorAll(".carousel-slide")];
+const carouselDots = [...document.querySelectorAll(".carousel-dots button")];
+const prevButton = document.querySelector(".carousel-button.prev");
+const nextButton = document.querySelector(".carousel-button.next");
 
 const parts = {
   days: document.querySelector("#days"),
@@ -117,7 +121,47 @@ function createParticles() {
   particles.appendChild(fragment);
 }
 
+function setupCarousel() {
+  if (!carouselSlides.length || !prevButton || !nextButton) {
+    return;
+  }
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    currentSlide = (index + carouselSlides.length) % carouselSlides.length;
+
+    carouselSlides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === currentSlide);
+    });
+
+    carouselDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === currentSlide);
+    });
+  }
+
+  carouselSlides.forEach((slide) => {
+    const image = slide.querySelector("img");
+
+    image.addEventListener("error", () => {
+      slide.classList.add("missing-photo");
+    });
+  });
+
+  prevButton.addEventListener("click", () => showSlide(currentSlide - 1));
+  nextButton.addEventListener("click", () => showSlide(currentSlide + 1));
+
+  carouselDots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => showSlide(dotIndex));
+  });
+
+  setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 5500);
+}
+
 createParticles();
+setupCarousel();
 updateLetters();
 updateMainCountdown();
 
