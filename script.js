@@ -26,8 +26,8 @@ const spotifySongs = [
     url: "https://open.spotify.com/intl-es/track/19lxccnIRRnxzqQssfQzAD?si=ec343037dfa04804",
   },
   {
-    title: "Cuando te maquillas suena esta cancion en mi cabeza",
-    note: "Pega aqui el segundo enlace de Spotify",
+    title: "Cancion 2",
+    note: "Cuando te maquillas suena esta cancion en mi cabeza",
     url: "https://open.spotify.com/intl-es/track/3jjujdWJ72nww5eGnfs2E7?si=b5564776ac9147d9",
   },
   {
