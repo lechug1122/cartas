@@ -2,10 +2,40 @@ const countdown = document.querySelector(".countdown");
 const particles = document.querySelector("#particles");
 const dateLabel = document.querySelector(".date");
 const cards = [...document.querySelectorAll(".letter-card")];
-const carouselSlides = [...document.querySelectorAll(".carousel-slide")];
-const carouselDots = [...document.querySelectorAll(".carousel-dots button")];
+const carouselFrame = document.querySelector("#carousel-frame");
+const carouselDotsContainer = document.querySelector("#carousel-dots");
 const prevButton = document.querySelector(".carousel-button.prev");
 const nextButton = document.querySelector(".carousel-button.next");
+const spotifyList = document.querySelector("#spotify-list");
+
+const photos = [
+  { src: "fotos/foto-1.JPEG", caption: "Foto 1", alt: "Recuerdo 1" },
+  { src: "fotos/foto-2.JPEG", caption: "Foto 2", alt: "Recuerdo 2" },
+  { src: "fotos/foto-3.JPEG", caption: "Foto 3", alt: "Recuerdo 3" },
+  { src: "fotos/foto-4.JPEG", caption: "Foto 4", alt: "Recuerdo 4" },
+  { src: "fotos/foto-5.JPEG", caption: "Foto 5", alt: "Recuerdo 5" },
+  { src: "fotos/foto-6.JPEG", caption: "Foto 6", alt: "Recuerdo 6" },
+  { src: "fotos/foto-7.JPEG", caption: "Foto 7", alt: "Recuerdo 7" },
+  { src: "fotos/foto-8.JPEG", caption: "Foto 8", alt: "Recuerdo 8" },
+];
+
+const spotifySongs = [
+  {
+    title: "Cancion 1",
+    note: "Cuando despierto y no estas, esta cancion la que me acompaña",
+    url: "https://open.spotify.com/intl-es/track/19lxccnIRRnxzqQssfQzAD?si=ec343037dfa04804",
+  },
+  {
+    title: "Cuando te maquillas suena esta cancion en mi cabeza",
+    note: "Pega aqui el segundo enlace de Spotify",
+    url: "https://open.spotify.com/intl-es/track/3jjujdWJ72nww5eGnfs2E7?si=b5564776ac9147d9",
+  },
+  {
+    title: "Cancion 3",
+    note: "Si hubiera una cacion que pudiera describir lo que siento por ti, seria esta",
+    url: "https://open.spotify.com/intl-es/track/2LKOHdMsL0K9KwcPRlJK2v?si=643f2b3f59a74de6",
+  },
+];
 
 const parts = {
   days: document.querySelector("#days"),
@@ -121,7 +151,43 @@ function createParticles() {
   particles.appendChild(fragment);
 }
 
+function createCarouselItems() {
+  if (!carouselFrame || !carouselDotsContainer) {
+    return;
+  }
+
+  const slideFragment = document.createDocumentFragment();
+  const dotsFragment = document.createDocumentFragment();
+
+  photos.forEach((photo, index) => {
+    const slide = document.createElement("figure");
+    slide.className = `carousel-slide${index === 0 ? " active" : ""}`;
+
+    const image = document.createElement("img");
+    image.src = photo.src;
+    image.alt = photo.alt;
+
+    const caption = document.createElement("figcaption");
+    caption.textContent = photo.caption;
+
+    slide.append(image, caption);
+    slideFragment.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Ver foto ${index + 1}`);
+    dot.classList.toggle("active", index === 0);
+    dotsFragment.appendChild(dot);
+  });
+
+  carouselFrame.appendChild(slideFragment);
+  carouselDotsContainer.appendChild(dotsFragment);
+}
+
 function setupCarousel() {
+  const carouselSlides = [...document.querySelectorAll(".carousel-slide")];
+  const carouselDots = [...document.querySelectorAll(".carousel-dots button")];
+
   if (!carouselSlides.length || !prevButton || !nextButton) {
     return;
   }
@@ -160,8 +226,42 @@ function setupCarousel() {
   }, 5500);
 }
 
+function setupSpotifySongs() {
+  if (!spotifyList) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  spotifySongs.forEach((song) => {
+    const item = document.createElement(song.url ? "a" : "div");
+    item.className = `spotify-song${song.url ? "" : " empty"}`;
+
+    if (song.url) {
+      item.href = song.url;
+      item.target = "_blank";
+      item.rel = "noopener";
+    }
+
+    const title = document.createElement("span");
+    title.className = "spotify-song-title";
+    title.textContent = song.title;
+
+    const note = document.createElement("span");
+    note.className = "spotify-song-note";
+    note.textContent = song.note;
+
+    item.append(title, note);
+    fragment.appendChild(item);
+  });
+
+  spotifyList.appendChild(fragment);
+}
+
 createParticles();
+createCarouselItems();
 setupCarousel();
+setupSpotifySongs();
 updateLetters();
 updateMainCountdown();
 

@@ -75,9 +75,12 @@
 
       <article class="letter-card" data-unlock="2026-05-16T12:00:00">
         <span class="card-number">Acto 4</span>
-        <h2>Destino</h2>
+        <h2>Preguntas y respuestas</h2>
         <p class="locked-text">Se habilita el 16 de mayo a las 12:00 PM.</p>
-        <p class="open-text">No se si el destino existe, pero contigo todo parece escrito con magia.</p>
+        <div class="open-text">
+          <p>El Acto 4 ya esta abierto.</p>
+          <a class="read-letter" href="cartas/carta 4.pdf" target="_blank" rel="noopener">Leer carta</a>
+        </div>
       </article>
 
       <article class="letter-card" data-unlock="2026-05-17T12:00:00">
@@ -97,43 +100,21 @@
       <div class="carousel" aria-label="Carrusel de fotos">
         <button class="carousel-button prev" type="button" aria-label="Foto anterior">&lsaquo;</button>
 
-        <div class="carousel-frame">
-          <figure class="carousel-slide active">
-            <img src="fotos/foto-1.JPEG" alt="Recuerdo 1">
-            <figcaption>Foto 1</figcaption>
-          </figure>
-
-          <figure class="carousel-slide">
-            <img src="fotos/foto-2.JPEG" alt="Recuerdo 2">
-            <figcaption>Foto 2</figcaption>
-          </figure>
-
-          <figure class="carousel-slide">
-            <img src="fotos/foto-3.JPEG" alt="Recuerdo 3">
-            <figcaption>Foto 3</figcaption>
-          </figure>
-
-          <figure class="carousel-slide">
-            <img src="fotos/foto-4.JPEG" alt="Recuerdo 4">
-            <figcaption>Foto 4</figcaption>
-          </figure>
-
-          <figure class="carousel-slide">
-            <img src="fotos/foto-5.JPEG" alt="Recuerdo 5">
-            <figcaption>Foto 5</figcaption>
-          </figure>
-        </div>
+        <div class="carousel-frame" id="carousel-frame"></div>
 
         <button class="carousel-button next" type="button" aria-label="Foto siguiente">&rsaquo;</button>
 
-        <div class="carousel-dots" aria-label="Seleccionar foto">
-          <button class="active" type="button" aria-label="Ver foto 1"></button>
-          <button type="button" aria-label="Ver foto 2"></button>
-          <button type="button" aria-label="Ver foto 3"></button>
-          <button type="button" aria-label="Ver foto 4"></button>
-          <button type="button" aria-label="Ver foto 5"></button>
-        </div>
+        <div class="carousel-dots" id="carousel-dots" aria-label="Seleccionar foto"></div>
       </div>
+    </section>
+
+    <section class="spotify" aria-labelledby="spotify-title">
+      <div class="gallery-heading">
+        <span>Banda sonora</span>
+        <h2 id="spotify-title">Canciones para nosotros</h2>
+      </div>
+
+      <div class="spotify-list" id="spotify-list" aria-label="Enlaces de canciones de Spotify"></div>
     </section>
   </main>
 

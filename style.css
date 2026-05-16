@@ -8,6 +8,8 @@
   --rose: #ff8bd8;
   --gold: #ffd485;
   --violet: #b73cff;
+  --old-gold: #c99a45;
+  --deep-gold: #6f4319;
 }
 
 * {
@@ -96,14 +98,17 @@ body {
   margin: 0 auto;
   padding: clamp(1.4rem, 4vw, 3.4rem);
   text-align: center;
-  border: 1px solid var(--line);
+  border: 0.2rem solid rgba(255, 212, 133, 0.74);
   background:
+    linear-gradient(90deg, rgba(111, 67, 25, 0.28), transparent 1.4rem calc(100% - 1.4rem), rgba(111, 67, 25, 0.28)),
     linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     var(--veil);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 0.18rem rgba(111, 67, 25, 0.86),
+    inset 0 0 0 0.58rem rgba(255, 212, 133, 0.12),
+    inset 0 0 2.2rem rgba(199, 144, 52, 0.18),
     0 1.5rem 5rem rgba(0, 0, 0, 0.46),
-    0 0 4rem rgba(160, 48, 255, 0.2);
+    0 0 4rem rgba(160, 48, 255, 0.18);
   backdrop-filter: blur(8px);
 }
 
@@ -111,8 +116,32 @@ body {
   content: "";
   position: absolute;
   inset: 0.75rem;
-  border: 1px solid rgba(255, 221, 255, 0.18);
+  border: 1px solid rgba(255, 212, 133, 0.38);
+  background:
+    linear-gradient(90deg, var(--old-gold), transparent 4rem calc(100% - 4rem), var(--old-gold)) top / 100% 1px no-repeat,
+    linear-gradient(90deg, var(--old-gold), transparent 4rem calc(100% - 4rem), var(--old-gold)) bottom / 100% 1px no-repeat,
+    linear-gradient(180deg, var(--old-gold), transparent 4rem calc(100% - 4rem), var(--old-gold)) left / 1px 100% no-repeat,
+    linear-gradient(180deg, var(--old-gold), transparent 4rem calc(100% - 4rem), var(--old-gold)) right / 1px 100% no-repeat;
   pointer-events: none;
+}
+
+.hero::after,
+.gallery::after,
+.spotify::after {
+  content: "";
+  position: absolute;
+  inset: 0.38rem;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0.45rem 0.45rem, transparent 0 0.24rem, var(--old-gold) 0.25rem 0.33rem, transparent 0.34rem),
+    radial-gradient(circle at calc(100% - 0.45rem) 0.45rem, transparent 0 0.24rem, var(--old-gold) 0.25rem 0.33rem, transparent 0.34rem),
+    radial-gradient(circle at 0.45rem calc(100% - 0.45rem), transparent 0 0.24rem, var(--old-gold) 0.25rem 0.33rem, transparent 0.34rem),
+    radial-gradient(circle at calc(100% - 0.45rem) calc(100% - 0.45rem), transparent 0 0.24rem, var(--old-gold) 0.25rem 0.33rem, transparent 0.34rem),
+    linear-gradient(45deg, transparent 0 1.05rem, rgba(255, 212, 133, 0.52) 1.06rem 1.12rem, transparent 1.13rem) top left / 3rem 3rem no-repeat,
+    linear-gradient(-45deg, transparent 0 1.05rem, rgba(255, 212, 133, 0.52) 1.06rem 1.12rem, transparent 1.13rem) top right / 3rem 3rem no-repeat,
+    linear-gradient(-45deg, transparent 0 1.05rem, rgba(255, 212, 133, 0.52) 1.06rem 1.12rem, transparent 1.13rem) bottom left / 3rem 3rem no-repeat,
+    linear-gradient(45deg, transparent 0 1.05rem, rgba(255, 212, 133, 0.52) 1.06rem 1.12rem, transparent 1.13rem) bottom right / 3rem 3rem no-repeat;
+  opacity: 0.95;
 }
 
 .logo {
@@ -208,11 +237,15 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  border: 1px solid rgba(255, 218, 255, 0.26);
+  border: 0.14rem solid rgba(255, 212, 133, 0.48);
   background:
+    linear-gradient(90deg, rgba(111, 67, 25, 0.22), transparent 0.52rem calc(100% - 0.52rem), rgba(111, 67, 25, 0.22)),
     linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)),
     var(--panel);
-  box-shadow: inset 0 0 1.8rem rgba(158, 53, 255, 0.13), 0 1rem 2.5rem rgba(0, 0, 0, 0.34);
+  box-shadow:
+    inset 0 0 0 0.22rem rgba(111, 67, 25, 0.58),
+    inset 0 0 1.8rem rgba(199, 144, 52, 0.12),
+    0 1rem 2.5rem rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(8px);
 }
 
@@ -308,10 +341,11 @@ h1 {
 }
 
 .letter-card.unlocked {
-  border-color: rgba(255, 139, 216, 0.62);
+  border-color: rgba(255, 212, 133, 0.68);
   box-shadow:
-    inset 0 0 1.6rem rgba(255, 139, 216, 0.18),
-    0 0 2rem rgba(255, 139, 216, 0.22),
+    inset 0 0 0 0.22rem rgba(111, 67, 25, 0.62),
+    inset 0 0 1.6rem rgba(199, 144, 52, 0.18),
+    0 0 2rem rgba(255, 212, 133, 0.16),
     0 1rem 2.5rem rgba(0, 0, 0, 0.32);
 }
 
@@ -324,18 +358,23 @@ h1 {
   color: #ffe8fb;
 }
 
-.gallery {
+.gallery,
+.spotify {
+  position: relative;
   width: min(76rem, 100%);
   margin: 0 auto;
   padding: clamp(1rem, 2.6vw, 1.4rem);
-  border: 1px solid rgba(183, 60, 255, 0.48);
+  border: 0.2rem solid rgba(255, 212, 133, 0.66);
   background:
-    linear-gradient(145deg, rgba(78, 18, 125, 0.5), rgba(5, 2, 9, 0.86)),
+    linear-gradient(90deg, rgba(111, 67, 25, 0.24), transparent 1.2rem calc(100% - 1.2rem), rgba(111, 67, 25, 0.24)),
+    linear-gradient(145deg, rgba(71, 17, 91, 0.42), rgba(5, 2, 9, 0.9)),
     rgba(10, 5, 16, 0.82);
   box-shadow:
-    inset 0 0 2rem rgba(183, 60, 255, 0.16),
+    inset 0 0 0 0.18rem rgba(111, 67, 25, 0.78),
+    inset 0 0 0 0.52rem rgba(255, 212, 133, 0.1),
+    inset 0 0 2rem rgba(199, 144, 52, 0.16),
     0 1rem 3rem rgba(0, 0, 0, 0.42),
-    0 0 2.4rem rgba(183, 60, 255, 0.2);
+    0 0 2.4rem rgba(183, 60, 255, 0.16);
   backdrop-filter: blur(8px);
 }
 
@@ -379,12 +418,13 @@ h1 {
   position: relative;
   min-height: clamp(18rem, 46vw, 34rem);
   overflow: hidden;
-  border: 1px solid rgba(210, 152, 255, 0.42);
+  border: 0.16rem solid rgba(255, 212, 133, 0.56);
   background:
     radial-gradient(circle at 50% 0, rgba(183, 60, 255, 0.28), transparent 22rem),
     #060307;
   box-shadow:
-    inset 0 0 2.2rem rgba(183, 60, 255, 0.16),
+    inset 0 0 0 0.22rem rgba(111, 67, 25, 0.72),
+    inset 0 0 2.2rem rgba(199, 144, 52, 0.12),
     0 1rem 2.6rem rgba(0, 0, 0, 0.42);
 }
 
@@ -510,6 +550,52 @@ h1 {
   box-shadow: 0 0 1rem rgba(183, 60, 255, 0.82);
 }
 
+.spotify-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.6vw, 1rem);
+}
+
+.spotify-song {
+  min-height: 6rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border: 1px solid rgba(255, 218, 255, 0.26);
+  color: #fff4ff;
+  background:
+    linear-gradient(145deg, rgba(29, 185, 84, 0.18), rgba(255, 255, 255, 0.03)),
+    rgba(16, 9, 25, 0.74);
+  text-decoration: none;
+  box-shadow: inset 0 0 1.5rem rgba(29, 185, 84, 0.09);
+  transition: transform 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+
+.spotify-song[href]:hover {
+  border-color: rgba(29, 185, 84, 0.78);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.spotify-song.empty {
+  border-style: dashed;
+  color: rgba(255, 244, 255, 0.72);
+}
+
+.spotify-song-title {
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 900;
+}
+
+.spotify-song-note {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
 .expired .time-block {
   grid-column: 1 / -1;
 }
@@ -589,6 +675,10 @@ h1 {
 
   .carousel-dots {
     grid-column: 1;
+  }
+
+  .spotify-list {
+    grid-template-columns: 1fr;
   }
 }
 
